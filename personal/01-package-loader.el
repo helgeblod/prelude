@@ -2,7 +2,7 @@
 (global-set-key "\C-cø" 'dash-at-point)
 
 (setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'super)
+(setq mac-option-modifier nil)
 
 ;; Theme
 (load-theme 'sanityinc-tomorrow-night t)
