@@ -2,3 +2,5 @@
 
 ;; Emacs server auto start
 (server-start)
+
+(global-linum-mode 1)
