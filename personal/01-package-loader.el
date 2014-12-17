@@ -57,3 +57,6 @@
 
 ;; Vis ett vindu
 (global-set-key "\C-xx" 'delete-other-windows)
+
+;; Turn off arrow key navigation
+(setq guru-warn-only nil)
