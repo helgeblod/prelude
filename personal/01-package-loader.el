@@ -6,12 +6,12 @@
 
 ;; Theme
 (load-theme 'sanityinc-tomorrow-night t)
-(set-face-attribute 'region nil :background "#373b41") ;; Set more visible highlight color
+(set-face-attribute 'region nil :background "#c5c8c6") ;; Set more visible highlight color
 
 ;; Clean up unused buffers from time to time
 (require 'midnight)
 
-(set-default-font "Source Code Pro-15")
+(set-default-font "Source Code Pro-14")
 
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
@@ -59,4 +59,8 @@
 (global-set-key "\C-xx" 'delete-other-windows)
 
 ;; Turn off arrow key navigation
-(setq guru-warn-only nil)
+;;(setq guru-warn-only nil)
+(require 'rspec-mode)
+'(rspec-spec-command "rspec --format documentation")
+'(rspec-use-rake-flag nil)
+'(rspec-use-rake-when-possible nil)
