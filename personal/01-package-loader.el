@@ -1,5 +1,6 @@
 ;; Dash documentation
 (global-set-key "\C-cø" 'dash-at-point)
+(global-set-key "\C-cm" 'dash-at-point-with-docset)
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
@@ -11,7 +12,7 @@
 ;; Clean up unused buffers from time to time
 (require 'midnight)
 
-(set-default-font "Source Code Pro-14")
+(set-frame-font "Source Code Pro-14")
 
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
