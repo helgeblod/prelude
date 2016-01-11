@@ -4,4 +4,5 @@
                             dash-at-point
                             ace-window
                             ag
+                            restclient
                             ))

@@ -42,9 +42,9 @@
 (setq org-log-done 'time)
 (setq org-agenda-files (list "~/org/work.org"))
 (setq org-todo-keyword-faces
-      '(("BACKLOG" . (:foreground "DarkOrange1" :weight bold))
+      '(;;("BACKLOG" . (:foreground "DarkOrange1" :weight bold))
         ("DOING" . (:foreground "spring green" :weight bold))
-        ("BLOCKED" . (:foreground "tomato"))
+        ;;("BLOCKED" . (:foreground "tomato"))
         ("DONE" . (:foreground "light sea green"))
         ))
 (setq org-todo-keywords
@@ -74,3 +74,6 @@
     (x-select-text path-with-line-number)
     (message (concat path-with-line-number " copied to clipboard"))))
 (global-set-key "\C-xw" 'copy-current-line-position-to-clipboard)
+
+;; Indexing in projectile
+(setq projectile-indexing-method 'alien)
