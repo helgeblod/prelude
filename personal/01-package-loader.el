@@ -75,5 +75,5 @@
     (message (concat path-with-line-number " copied to clipboard"))))
 (global-set-key "\C-xw" 'copy-current-line-position-to-clipboard)
 
-;; Indexing in projectile
-(setq projectile-indexing-method 'alien)
+;; Cache
+(setq projectile-enable-caching t)
