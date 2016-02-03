@@ -18,8 +18,6 @@
 (setq prelude-flyspell nil)
 
 (require 'helm-config)
-(setq helm-input-idle-delay 0.2)
-;;  (helm-mode t)
 (setq helm-locate-command
       (case system-type
         ('gnu/linux "locate -i -r %s")
