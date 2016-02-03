@@ -58,7 +58,8 @@
 (global-set-key "\C-xx" 'delete-other-windows)
 
 ;; Turn off arrow key navigation
-;;(setq guru-warn-only nil)
+(setq guru-warn-only nil)
+
 (require 'rspec-mode)
 '(rspec-spec-command "rspec --format documentation")
 '(rspec-use-rake-flag nil)
