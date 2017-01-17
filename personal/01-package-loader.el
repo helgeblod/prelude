@@ -83,7 +83,10 @@
 ;; Dumb jump
 (dumb-jump-mode)
 
-;; Emmet-mode
+
+;; Emmet-mod
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (setq emmet-move-cursor-between-quotes t) ;; default nil
 (setq emmet-expand-jsx-className? t) ;; default nil
 (global-set-key "\C-j" 'emmet-expand-line)
