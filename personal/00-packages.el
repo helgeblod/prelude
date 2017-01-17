@@ -5,4 +5,6 @@
                             ace-window
                             ag
                             restclient
+                            dumb-jump
+                            zencoding
                             ))

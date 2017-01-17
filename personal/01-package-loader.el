@@ -26,6 +26,9 @@
         ('darwin "mdfind -name %s %s")
         (t "locate %s")))
 
+;; Faster grep searching using ripgrep
+(setq helm-grep-ag-command "rg --color=always --smart-case --no-heading --line-number %s %s %s")
+
 ;; Use OS X mdfind to locate files
 (setq locate-command "mdfind")
 (global-set-key "\C-x\C-g" 'helm-locate)
@@ -76,3 +79,11 @@
 
 ;; Cache
 (setq projectile-enable-caching t)
+
+;; Dumb jump
+(dumb-jump-mode)
+
+;; Emmet-mode
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+(setq emmet-expand-jsx-className? t) ;; default nil
+(global-set-key "\C-j" 'emmet-expand-line)
