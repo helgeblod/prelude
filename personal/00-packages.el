@@ -7,4 +7,5 @@
                             restclient
                             dumb-jump
                             zencoding
+                            projector
                             ))
