@@ -36,27 +36,6 @@
 ;; Goto line number
 (global-set-key "\C-c\C-g" 'goto-line)
 
-;; Org mod
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done 'time)
-(setq org-agenda-files (list "~/org/work.org"))
-(setq org-todo-keyword-faces
-      '(;;("BACKLOG" . (:foreground "DarkOrange1" :weight bold))
-        ("DOING" . (:foreground "spring green" :weight bold))
-        ;;("BLOCKED" . (:foreground "tomato"))
-        ("DONE" . (:foreground "light sea green"))
-        ))
-(setq org-todo-keywords
-      '((sequence "BACKLOG" "DOING" "BLOCKED" "DONE")))
-(defun my-org-archive-done-tasks ()
-  (interactive)
-  (org-map-entries 'org-archive-subtree "/DONE" 'file))
-
-;; iEdit
-(define-key global-map (kbd "C-;") 'iedit-mode)
-
 ;; Vis ett vindu
 (global-set-key "\C-xx" 'delete-other-windows)
 
@@ -84,6 +63,7 @@
 (dumb-jump-mode)
 
 ;; Emmet-mode
+(require 'emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (setq emmet-move-cursor-between-quotes t) ;; default nil
 (setq emmet-expand-jsx-className? t) ;; default nil
@@ -92,3 +72,6 @@
 ;; Web-mode on js-files
 (setq web-mode-content-types-alist
       '(("jsx" . "\\.js[x]?\\'")))
+
+;; Magithub
+(require 'magithub)
