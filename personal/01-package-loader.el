@@ -87,4 +87,4 @@
 (global-ace-isearch-mode +1)
 
 ;; Avy-zap-to-char
-;;(global-set-key "\M-z" 'avy-zap-to-char)
+(global-set-key "\M-z" 'avy-zap-to-char)
