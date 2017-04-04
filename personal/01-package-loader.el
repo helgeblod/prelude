@@ -12,7 +12,7 @@
 ;; Clean up unused buffers from time to time
 (require 'midnight)
 
-(set-frame-font "Source Code Pro-14")
+(set-frame-font "Source Code Pro-11")
 
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
@@ -73,5 +73,18 @@
 (setq web-mode-content-types-alist
       '(("jsx" . "\\.js[x]?\\'")))
 
+;; Magit
+(global-set-key "\C-c\m" 'magit-status)
+
 ;; Magithub
 (require 'magithub)
+(magithub-feature-autoinject t)
+
+;; Mode icons
+(mode-icons-mode)
+
+;;  Ace isearch
+(global-ace-isearch-mode +1)
+
+;; Avy-zap-to-char
+;;(global-set-key "\M-z" 'avy-zap-to-char)

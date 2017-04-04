@@ -1,11 +1,14 @@
 (prelude-require-packages '(
                             color-theme-sanityinc-tomorrow
                             dash-at-point
-                            ace-window
+                            avy-window
+                            ace-isearch
                             ag
                             restclient
                             dumb-jump
-                            zencoding
                             projector
                             magithub
+                            rspec-mode
+                            emmet-mode
+                            mode-icons
                             ))
