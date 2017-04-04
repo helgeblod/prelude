@@ -12,7 +12,7 @@
 ;; Clean up unused buffers from time to time
 (require 'midnight)
 
-(set-frame-font "Source Code Pro-11")
+(set-frame-font "Source Code Pro-12")
 
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
