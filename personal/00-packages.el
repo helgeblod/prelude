@@ -1,7 +1,7 @@
 (prelude-require-packages '(
                             color-theme-sanityinc-tomorrow
                             dash-at-point
-                            avy-window
+                            avy-zap
                             ace-isearch
                             ag
                             restclient
