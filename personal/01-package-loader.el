@@ -12,7 +12,7 @@
 ;; Clean up unused buffers from time to time
 (require 'midnight)
 
-(set-frame-font "Source Code Pro-12")
+(set-frame-font "Source Code Pro-14")
 
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
@@ -47,15 +47,6 @@
 '(rspec-use-rake-flag nil)
 '(rspec-use-rake-when-possible nil)
 
-(defun copy-current-line-position-to-clipboard ()
-  "Copy current line in file to clipboard as '</path/to/file>:<line-number>'"
-  (interactive)
-  (let ((path-with-line-number
-         (concat (buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
-    (x-select-text path-with-line-number)
-    (message (concat path-with-line-number " copied to clipboard"))))
-(global-set-key "\C-xw" 'copy-current-line-position-to-clipboard)
-
 ;; Cache
 (setq projectile-enable-caching t)
 
@@ -74,7 +65,7 @@
       '(("jsx" . "\\.js[x]?\\'")))
 
 ;; Magit
-(global-set-key "\C-c\m" 'magit-status)
+(global-set-key "\C-c\m" 'imenu)
 
 ;; Magithub
 (require 'magithub)
