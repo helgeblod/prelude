@@ -64,9 +64,6 @@
 (setq web-mode-content-types-alist
       '(("jsx" . "\\.js[x]?\\'")))
 
-;; Magit
-(global-set-key "\C-c\m" 'imenu)
-
 ;; Magithub
 (require 'magithub)
 (magithub-feature-autoinject t)
@@ -79,3 +76,7 @@
 
 ;; Avy-zap-to-char
 (global-set-key "\M-z" 'avy-zap-to-char)
+
+;; Zone mode
+(require 'zone)
+(zone-when-idle 120)
