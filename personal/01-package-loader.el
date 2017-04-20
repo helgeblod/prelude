@@ -65,8 +65,8 @@
       '(("jsx" . "\\.js[x]?\\'")))
 
 ;; Magithub
-(require 'magithub)
-(magithub-feature-autoinject t)
+;;(require 'magithub)
+;;(magithub-feature-autoinject t)
 
 ;; Mode icons
 (mode-icons-mode)
@@ -76,7 +76,3 @@
 
 ;; Avy-zap-to-char
 (global-set-key "\M-z" 'avy-zap-to-char)
-
-;; Zone mode
-(require 'zone)
-(zone-when-idle 120)

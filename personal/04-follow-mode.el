@@ -29,6 +29,6 @@ to follow-mode"
   (balance-windows)
   (follow-mode 1))
 
-(global-set-key (kbd "C-x 1") 'split-into-two-horizontally-and-follow)
-(global-set-key (kbd "C-x 2") 'split-into-three-horizontally-and-follow)
-(global-set-key (kbd "C-x 3") 'split-into-four-horizontally-and-follow)
+(global-set-key (kbd "C-c 1") 'split-into-two-horizontally-and-follow)
+(global-set-key (kbd "C-c 2") 'split-into-three-horizontally-and-follow)
+(global-set-key (kbd "C-c 3") 'split-into-four-horizontally-and-follow)
