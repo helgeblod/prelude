@@ -11,4 +11,5 @@
                             rspec-mode
                             emmet-mode
                             mode-icons
+                            helm-swoop
                             ))
