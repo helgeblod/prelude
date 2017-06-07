@@ -64,6 +64,11 @@
 (setq web-mode-content-types-alist
       '(("jsx" . "\\.js[x]?\\'")))
 
+
+;; Go mode hack to get renaming to work
+(setq go-projectile-switch-gopath 'never)
+(setenv "GOPATH" "/Users/jonas/src/go/")
+
 ;; Magithub
 ;;(require 'magithub)
 ;;(magithub-feature-autoinject t)
