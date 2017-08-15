@@ -53,17 +53,6 @@
 ;; Dumb jump
 (dumb-jump-mode)
 
-;; Emmet-mode
-(require 'emmet-mode)
-(add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(setq emmet-move-cursor-between-quotes t) ;; default nil
-(setq emmet-expand-jsx-className? t) ;; default nil
-(global-set-key "\C-j" 'emmet-expand-line)
-
-;; Web-mode on js-files
-(setq web-mode-content-types-alist
-      '(("jsx" . "\\.js[x]?\\'")))
-
 
 ;; Go mode hack to get renaming to work
 (setq go-projectile-switch-gopath 'never)
