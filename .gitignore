@@ -23,3 +23,5 @@ tramp
 .emacs.desktop
 .emacs.desktop.lock
 emojis/
+.mc-lists.el
+network-security.data
