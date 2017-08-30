@@ -12,4 +12,6 @@
                             emmet-mode
                             mode-icons
                             helm-swoop
+                            js2-refactor
+
                             ))
