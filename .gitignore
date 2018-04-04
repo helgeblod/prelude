@@ -25,3 +25,6 @@ tramp
 emojis/
 .mc-lists.el
 network-security.data
+prelude-cheatsheet.el
+prelude-cheatsheet.aux
+prelude-cheatsheet.log
