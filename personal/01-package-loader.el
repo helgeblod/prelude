@@ -73,6 +73,10 @@
 ;; Avy-zap-to-char
 (global-set-key "\M-z" 'avy-zap-to-char)
 
+
+;; Ask before quit
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; Javascript stuff
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-r")
@@ -90,3 +94,6 @@
                            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+
+;; Default shell should be fish
+(setq explicit-shell-file-name "/usr/local/bin/fish")
