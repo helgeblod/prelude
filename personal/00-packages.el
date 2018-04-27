@@ -12,6 +12,7 @@
                             emmet-mode
                             mode-icons
                             helm-swoop
+                            writeroom-mode
                             js2-refactor
 
                             ))

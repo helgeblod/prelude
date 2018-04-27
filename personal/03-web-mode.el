@@ -1,10 +1,10 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
-(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) ;;web-mode for js/jsx
+;; (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) ;;web-mode for js/jsx
 
-(add-to-list 'auto-mode-alist '("\\.vue?$" . web-mode)) ;;web-mode for js/vue
+;; (add-to-list 'auto-mode-alist '("\\.vue?$" . web-mode)) ;;web-mode for js/vue
 
-(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; (flycheck-add-mode 'javascript-eslint 'web-mode)
 
 ;; Emmet-mode
 (require 'emmet-mode)

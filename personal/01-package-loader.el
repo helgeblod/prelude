@@ -2,9 +2,6 @@
 (global-set-key "\C-cø" 'dash-at-point)
 (global-set-key "\C-cm" 'dash-at-point-with-docset)
 
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
-
 ;; Theme
 (load-theme 'sanityinc-tomorrow-night t)
 (set-face-attribute 'region nil :background "#c5c8c6") ;; Set more visible highlight color
@@ -68,32 +65,27 @@
 ;;  Ace isearch
 (global-ace-isearch-mode +1)
 
-(setq tramp-default-method "ssh")
-
 ;; Avy-zap-to-char
 (global-set-key "\M-z" 'avy-zap-to-char)
-
 
 ;; Ask before quit
 (setq confirm-kill-emacs 'y-or-n-p)
 
-;; Javascript stuff
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-r")
-(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+;; Markdown mode should enable writeroom
+(add-hook 'markdown-mode-hook 'writeroom-mode)
 
-;; js-refactor
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-r")
+;; Hide most info in the mode-line
 
-;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
-;; unbind it.
-(define-key js-mode-map (kbd "M-.") nil)
 
-(add-hook 'js2-mode-hook (lambda ()
-                           (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-
-;; Default shell should be fish
-(setq explicit-shell-file-name "/usr/local/bin/fish")
+(setq-default mode-line-format '("%e "
+                                 (format "%s " mode-name)
+                                 " %* %b ܃ "
+                                 (:eval
+                                  (if (use-region-p)
+                                      (if (eq (point) (region-beginning))
+                                          (format "%%l … %d" (line-number-at-pos (region-end)))
+                                        (format "%d … %%l" (line-number-at-pos (region-beginning))))
+                                    "%l "))
+                                 ))
+;; Mode icons
+(mode-icons-mode)
