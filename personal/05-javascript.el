@@ -8,7 +8,9 @@
   '(add-hook 'js2-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
 
 (eval-after-load 'web-mode
-  '(add-hook 'web-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+f  '(add-hook 'web-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t))))
+
+
 
 ;; ;; adjust indents for web-mode to 2 spaces
 ;; (defun my-web-mode-hook ()
