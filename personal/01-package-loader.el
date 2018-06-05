@@ -89,3 +89,7 @@
                                  ))
 ;; Mode icons
 (mode-icons-mode)
+
+;; TLS fix
+(require 'gnutls)
+(add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")

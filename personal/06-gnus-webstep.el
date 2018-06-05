@@ -1,4 +1,5 @@
 (setq gnus-use-cache t)
+(setq nnmail-expiry-wait 'immediate)
 
 (setq gnus-select-method
       '(nnimap "gmail"
@@ -16,8 +17,6 @@
       smtpmail-smtp-service 587
       gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
 
-(setq user-full-name "Jonas Helgemo"
-      user-mail-address "jonas.helgemo@webstep.no")
 
 ;; http://groups.google.com/group/gnu.emacs.gnus/browse_thread/thread/a673a74356e7141f
 (when window-system
