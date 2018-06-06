@@ -55,6 +55,21 @@
 (setq go-projectile-switch-gopath 'never)
 (setenv "GOPATH" "/Users/jonas/src/go/")
 
+
+
+;; Magit
+;; full screen magit-status
+(defadvice magit-status (around magit-fullscreen activate)
+  (window-configuration-to-register :magit-fullscreen)
+  ad-do-it
+  (delete-other-windows))
+
+(defun magit-quit-session ()
+  "Restores the previous window configuration and kills the magit buffer"
+  (interactive)
+  (kill-buffer)
+  (jump-to-register :magit-fullscreen))
+
 ;; Magithub
 ;;(require 'magithub)
 ;;(magithub-feature-autoinject t)
@@ -75,8 +90,6 @@
 (add-hook 'markdown-mode-hook 'writeroom-mode)
 
 ;; Hide most info in the mode-line
-
-
 (setq-default mode-line-format '("%e "
                                  (format "%s " mode-name)
                                  " %* %b ܃ "
@@ -93,3 +106,86 @@
 ;; TLS fix
 (require 'gnutls)
 (add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")
+
+;; Magnars tweaks
+;; Save last position
+;; Save point position between sessions
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" user-emacs-directory))
+
+;; Join lines
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
+;; Faster navigation
+;; Move more quickly
+(global-set-key (kbd "C-S-n")
+                (lambda ()
+                  (interactive)
+                  (ignore-errors (next-line 5))))
+
+(global-set-key (kbd "C-S-p")
+                (lambda ()
+                  (interactive)
+                  (ignore-errors (previous-line 5))))
+
+(global-set-key (kbd "C-S-f")
+                (lambda ()
+                  (interactive)
+                  (ignore-errors (forward-char 5))))
+
+(global-set-key (kbd "C-S-b")
+                (lambda ()
+                  (interactive)
+                  (ignore-errors (backward-char 5))))
+
+;; Toggle window splitting between horizontal and vertical
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
+
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+
+;; Shell stuff
+(defun comint-delchar-or-eof-or-kill-buffer (arg)
+  (interactive "p")
+  (if (null (get-buffer-process (current-buffer)))
+      (kill-buffer)
+    (comint-delchar-or-maybe-eof arg)))
+
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (define-key shell-mode-map
+              (kbd "C-d") 'comint-delchar-or-eof-or-kill-buffer)))
