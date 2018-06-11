@@ -14,5 +14,6 @@
                             helm-swoop
                             writeroom-mode
                             js2-refactor
+                            indium
                             rjsx-mode
                             ))
