@@ -2,6 +2,12 @@
 (global-set-key "\C-cø" 'dash-at-point)
 (global-set-key "\C-cm" 'dash-at-point-with-docset)
 
+;; Terminal
+(global-set-key (kbd "\C-cx") '(lambda ()  (interactive) (term "/usr/local/bin/fish")))
+
+;; Use string format in re-builder
+(setq reb-re-syntax 'string)
+
 ;; Theme
 (load-theme 'sanityinc-tomorrow-night t)
 (set-face-attribute 'region nil :background "#c5c8c6") ;; Set more visible highlight color
