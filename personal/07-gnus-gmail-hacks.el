@@ -49,74 +49,76 @@
 ;; ctrl-c d (no 'v' prefix) send reply and archive parent
 
 ;; Archive.
-  (define-key gnus-summary-mode-map "va"
-     (lambda () (interactive)
-         (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/All Mail" nil)))
+
+(define-key gnus-summary-mode-map "va"
+  (lambda () (interactive)
+    (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/All Mail" nil)))
+
 ;; Archive all.
-  (define-key gnus-summary-mode-map "vA"
-    (lambda () (interactive)
-      (gnus-uu-mark-buffer)
-      (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/All Mail" nil)))
+(define-key gnus-summary-mode-map "vA"
+  (lambda () (interactive)
+    (gnus-uu-mark-buffer)
+    (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/All Mail" nil)))
 ;; Spam.
-  (define-key gnus-summary-mode-map "vs"
-     (lambda () (interactive)
-         (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Spam" nil)))
+(define-key gnus-summary-mode-map "vs"
+  (lambda () (interactive)
+    (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Spam" nil)))
 ;; Spam all.
-  (define-key gnus-summary-mode-map "vS"
-     (lambda () (interactive)
-         (gnus-uu-mark-buffer)
-         (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Spam" nil)))
+(define-key gnus-summary-mode-map "vS"
+  (lambda () (interactive)
+    (gnus-uu-mark-buffer)
+    (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Spam" nil)))
 ;; Trash.
-  (define-key gnus-summary-mode-map "vt"
-     (lambda () (interactive)
-         (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Trash" nil)))
+(define-key gnus-summary-mode-map "vt"
+  (lambda () (interactive)
+    (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Bin" nil)))
 ;; Trash all.
-  (define-key gnus-summary-mode-map "vT"
-     (lambda () (interactive)
-         (gnus-uu-mark-buffer)
-         (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Trash" nil)))
+(define-key gnus-summary-mode-map "vT"
+  (lambda () (interactive)
+    (gnus-uu-mark-buffer)
+    (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Bin" nil)))
 ;; Move to INBOX.
-  (define-key gnus-summary-mode-map "vi"
-     (lambda () (interactive)
-         (gnus-summary-move-article nil "nnimap+gmail:INBOX" nil)))
+(define-key gnus-summary-mode-map "vi"
+  (lambda () (interactive)
+    (gnus-summary-move-article nil "nnimap+gmail:INBOX" nil)))
 ;; Delete ('empty') all spam or trash.  We verify that variable
-;; "gnus-summary-buffer" contains [Gmail]/Spam or [Gmail]/Trash.
+;; "gnus-summary-buffer" contains [Gmail]/Spam or [Gmail]/Bin.
 ;; (Or "reviews" for my local use.)
-  (define-key gnus-summary-mode-map "ve"
-     (lambda () (interactive)
-       (if (or  (string-match "\\[Gmail\\]/Trash" (format "%s" gnus-summary-buffer))
+(define-key gnus-summary-mode-map "ve"
+  (lambda () (interactive)
+    (if (or  (string-match "\\[Gmail\\]/Bin" (format "%s" gnus-summary-buffer))
              (string-match "\\[Gmail\\]/Spam" (format "%s" gnus-summary-buffer))
              (string-match "reviews" (format "%s" gnus-summary-buffer)) )
-         (progn
-           (gnus-uu-mark-buffer)
-           (gnus-summary-delete-article)
+        (progn
+          (gnus-uu-mark-buffer)
+          (gnus-summary-delete-article)
           )
-         (message "Valid only in Spam or Trash groups")
-       )
-     )
+      (message "Valid only in Spam or Trash groups")
+      )
+    )
   )
 
 ;; Reply to email, archive parent.
-  (define-key message-mode-map "\C-cd"
-     (lambda () (interactive)
-;; Sending has to be done as below, as orgtbl might be active in
-;; message mode.
-       (call-interactively (key-binding "\C-c\C-c"))
+(define-key message-mode-map "\C-cd"
+  (lambda () (interactive)
+    ;; Sending has to be done as below, as orgtbl might be active in
+    ;; message mode.
+    (call-interactively (key-binding "\C-c\C-c"))
 
-;; This assumes we started with a message reply originated by typing
-;; 'r' or 'R' in a summary buffer. There's no way to check that
-;; specifically, but the buffer name should contain "*Summary" at
-;; least.
+    ;; This assumes we started with a message reply originated by typing
+    ;; 'r' or 'R' in a summary buffer. There's no way to check that
+    ;; specifically, but the buffer name should contain "*Summary" at
+    ;; least.
 
-       (if (string-match "*Summary" (buffer-name))
-         (progn
-           (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/All Mail" nil)
-           (message "Sent and archived")
-         )
-         (message "Sent but cannot archive, not in a summary buffer")
-       )
-     )
-   )
+    (if (string-match "*Summary" (buffer-name))
+        (progn
+          (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/All Mail" nil)
+          (message "Sent and archived")
+          )
+      (message "Sent but cannot archive, not in a summary buffer")
+      )
+    )
+  )
 
 ;;-----------------------
 
@@ -148,12 +150,12 @@
   ;; Restore the hooks.
   (if (get-buffer "*Group*")
       (with-current-buffer "*Group*"
-	 (if (gnus-group-goto-group "nndraft:drafts" t)
-	       (if (or (gnus-group-select-group) (gnus-topic-select-group))
-		   (progn
-		      (gnus-uu-mark-buffer)
-		      (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Drafts" nil)
-		      (gnus-summary-exit))))))
+        (if (gnus-group-goto-group "nndraft:drafts" t)
+            (if (or (gnus-group-select-group) (gnus-topic-select-group))
+                (progn
+                  (gnus-uu-mark-buffer)
+                  (gnus-summary-move-article nil "nnimap+gmail:[Gmail]/Drafts" nil)
+                  (gnus-summary-exit))))))
   (setq gnus-summary-article-move-hook gmail-draft-saved-hooks))
 
 ;; Make our function run after saving a draft.
@@ -172,10 +174,10 @@
 
 (defun changegroupinemaillink (args)
   (setcar args
-	  (replace-regexp-in-string
-	   "gmail.com:INBOX"
-	   "gmail.com:[Gmail]/All Mail" (car args)))
+          (replace-regexp-in-string
+           "gmail.com:INBOX"
+           "gmail.com:[Gmail]/All Mail" (car args)))
   args
-)
+  )
 
 (advice-add 'org-gnus-article-link :filter-args #'changegroupinemaillink)

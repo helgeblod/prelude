@@ -1,3 +1,6 @@
+(require 'gnus)
+(require 'message)
+
 (setq gnus-use-cache t)
 (setq nnmail-expiry-wait 'immediate)
 

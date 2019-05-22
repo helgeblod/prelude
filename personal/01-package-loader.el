@@ -15,7 +15,7 @@
 ;; Clean up unused buffers from time to time
 (require 'midnight)
 
-(set-frame-font "Source Code Pro-15")
+(set-frame-font "Source Code Pro-18")
 
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
@@ -30,7 +30,7 @@
         (t "locate %s")))
 
 ;; Faster grep searching using ripgrep
-(setq helm-grep-ag-command "rg --color=always --smart-case --no-heading --line-number %s %s %s")
+(setq helm-grep-ag-command "rg --no-heading --smart-case")
 
 ;; Use OS X mdfind to locate files
 (setq locate-command "mdfind")
@@ -56,12 +56,9 @@
 ;; Dumb jump
 (dumb-jump-mode)
 
-
 ;; Go mode hack to get renaming to work
 (setq go-projectile-switch-gopath 'never)
 (setenv "GOPATH" "/Users/jonas/src/go/")
-
-
 
 ;; Magit
 ;; full screen magit-status
@@ -75,10 +72,6 @@
   (interactive)
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
-
-;; Magithub
-;;(require 'magithub)
-;;(magithub-feature-autoinject t)
 
 ;; Mode icons
 (mode-icons-mode)
@@ -195,3 +188,7 @@
           (lambda ()
             (define-key shell-mode-map
               (kbd "C-d") 'comint-delchar-or-eof-or-kill-buffer)))
+
+;; Snippets insert
+(global-set-key "\C-c\C-l" 'yas-insert-snippet)
+(yas-global-mode)

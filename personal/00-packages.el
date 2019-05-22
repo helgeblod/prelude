@@ -4,10 +4,8 @@
                             avy-zap
                             ace-isearch
                             ag
-                            restclient
                             dumb-jump
                             projector
-                            magithub
                             rspec-mode
                             emmet-mode
                             mode-icons
@@ -15,5 +13,6 @@
                             writeroom-mode
                             js2-refactor
                             emojify
-                            rjsx-mode
+                            prettier-js
+                            magit-gh-pulls
                             ))
