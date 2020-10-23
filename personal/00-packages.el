@@ -16,4 +16,5 @@
                             bbdb
                             prettier-js
                             magit-gh-pulls
+                            default-text-scale
                             ))
