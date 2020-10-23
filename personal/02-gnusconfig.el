@@ -1,4 +1,4 @@
-;; (setq gnus-use-cache t)
+(setq gnus-use-cache t)
 
 ;; (setq gnus-article-date-headers '(user-defined)
 ;;       gnus-article-time-format

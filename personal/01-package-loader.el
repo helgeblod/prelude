@@ -20,17 +20,17 @@
 ;; Disable spellcheck
 (setq prelude-flyspell nil)
 
-(require 'helm-config)
-(setq helm-locate-command
-      (case system-type
-        ('gnu/linux "locate -i -r %s")
-        ('berkeley-unix "locate -i %s")
-        ('windows-nt "es %s")
-        ('darwin "mdfind -name %s %s")
-        (t "locate %s")))
+;; (require 'helm-config)
+;; (setq helm-locate-command
+;;       (case system-type
+;;         ('gnu/linux "locate -i -r %s")
+;;         ('berkeley-unix "locate -i %s")
+;;         ('windows-nt "es %s")
+;;         ('darwin "mdfind -name %s %s")
+;;         (t "locate %s")))
 
 ;; Faster grep searching using ripgrep
-(setq helm-grep-ag-command "rg --no-heading --smart-case")
+;; (setq helm-grep-ag-command "rg --no-heading --smart-case")
 
 ;; Use OS X mdfind to locate files
 (setq locate-command "mdfind")

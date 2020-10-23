@@ -27,3 +27,5 @@ prelude-cheatsheet.el
 prelude-cheatsheet.aux
 prelude-cheatsheet.log
 transient/
+smex-items
+.places
