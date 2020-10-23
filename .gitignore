@@ -22,13 +22,8 @@ tramp
 /var/pcache
 .emacs.desktop
 .emacs.desktop.lock
-emojis/
-.mc-lists.el
 network-security.data
 prelude-cheatsheet.el
 prelude-cheatsheet.aux
 prelude-cheatsheet.log
-/.places
-/bbdb
-/games
-transient
+transient/
