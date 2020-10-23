@@ -13,6 +13,7 @@
                             writeroom-mode
                             js2-refactor
                             emojify
+                            bbdb
                             prettier-js
                             magit-gh-pulls
                             ))

@@ -11,3 +11,6 @@
 ;;                          (string-match " (.+" combined-lapsed)
 ;;                          (match-string 0 combined-lapsed))))
 ;;           (concat local lapsed))))
+(with-eval-after-load "mm-decode"
+  (add-to-list 'mm-discouraged-alternatives "text/html")
+  (add-to-list 'mm-discouraged-alternatives "text/richtext"))
