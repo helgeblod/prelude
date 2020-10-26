@@ -192,3 +192,6 @@
 ;; Snippets insert
 (global-set-key "\C-c\C-l" 'yas-insert-snippet)
 (yas-global-mode)
+
+;; Default text scale
+(setq default-text-scale-mode t)
